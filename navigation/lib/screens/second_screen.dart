@@ -1,24 +1,34 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SecondScreen extends StatelessWidget{
+class SecondScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+
+    String firstName = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Second Screen"),
-      ),
-      body: Center(
-        child: Text("This is second screen"),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.backspace_outlined),
-        onPressed: (){
-          Navigator.of(context).pop();
-        },
+      backgroundColor: Colors.grey,
+      body: Container(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Welcome, $firstName"),
+
+            Container(height: 16,),
+
+            FlatButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Go Back to first screen"),
+              color: Colors.blue,
+              textColor: Colors.white,
+            ),
+          ],
+        ),
       ),
     );
   }
-
 }

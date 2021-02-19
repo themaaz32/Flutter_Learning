@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation/screens/second_screen.dart';
 
@@ -6,21 +5,32 @@ class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    String userName = "Maaz Aftab";
+    String name = "Waleed Aftab";
 
-    // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        title: Text("First Screen"),
-      ),
-      body: Center(
-        child: Text("This is first screen"),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed("/second");
-        },
-        child: Icon(Icons.navigation),
+      body: Container(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("This is first screen"),
+            Container(
+              height: 16,
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  "second",
+                  arguments: name,
+                );
+              },
+              child: Text("Go to second screen"),
+              color: Colors.blue,
+              textColor: Colors.white,
+            ),
+          ],
+        ),
       ),
     );
   }
